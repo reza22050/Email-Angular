@@ -1,0 +1,28 @@
+<form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Create an account</h3>
+    <app-input [label]="'Username'" [control]="f.get('username')"></app-input>
+
+    <app-input 
+      [label]="'Password'" 
+      [control]="f.get('password')" 
+      [placeholder]="'Please enter password'">
+      [type]="'password'"
+    </app-input>
+
+    <app-input 
+      [label]="'Password confirmation'" 
+      [control]="f.get('passwordConfirmation')" 
+      [placeholder]="'Please enter password confirmation'">
+      [type]="'password'"
+    </app-input>
+    
+    <ng-container *ngIf="showErrorPasswordDoesnotMatch()">
+      <div class="ui pointing red basic label" *ngIf="f && f.errors && f.errors['passwordDoesnotMatch']">
+        Please enter the same password
+      </div>
+    </ng-container>
+
+    <button class="ui button mt-5" style="margin-top: 5px;display: block;" type="submit">Create account</button>
+  </form>
+  <!-- {{form.errors | json}} -->
+  {{form.controls?.username?.errors | json}}

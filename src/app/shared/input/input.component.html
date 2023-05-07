@@ -1,0 +1,30 @@
+<div class="field">
+    <label>{{label}}</label>
+    <input 
+        [type]="type" 
+        [placeholder]="placeholder" 
+        [formControl]="control" 
+    />
+    <ng-container *ngIf="showErrors()">
+        <div class="ui pointing red basic label" *ngIf="control.errors['required']">
+            Please enter this value
+        </div>
+        <div class="ui pointing red basic label" *ngIf="control.errors['minlength']">
+            Min length should be {{control.errors.minlength.requiredLength}}
+            and your entered text has {{control.errors.minlength.actualLength}} chars
+        </div>
+        <div class="ui pointing red basic label" *ngIf="control.errors['maxlength']">
+            Max length should be {{control.errors.maxLength.requiredLegnth}}
+            and your entered text has {{control.errors.maxLength.actualLength}} chars
+        </div>
+        <div class="ui pointing red basic label" *ngIf="control.errors['nonUniqueUsername']">
+            This username is already taken
+        </div>
+        <div class="ui pointing red basic label" *ngIf="control.errors['unknownError']">
+            Unknown error
+        </div>
+    </ng-container>
+    
+
+</div>
+
