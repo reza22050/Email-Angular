@@ -1,1 +1,22 @@
-<p>signin works!</p>
+<form class="ui form container mt-20" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Login component</h3>
+    <app-input [label]="'Username'" [control]="f.get('username')"></app-input>
+
+    <app-input 
+      [label]="'Password'" 
+      [control]="f.get('password')" 
+      [placeholder]="'Please enter password'">
+      [type]="'password'"
+    </app-input>
+
+    
+    <ng-container *ngIf="showErrorPasswordDoesnotMatch()">
+      <div class="ui pointing red basic label" *ngIf="f && f.errors && f.errors['noConnection']">
+        Please check your network
+      </div>
+    </ng-container>
+
+    <button [disabled]="f.invalid" class="ui button mt-5" style="margin-top: 5px;display: block;" type="submit">Create account</button>
+  </form>
+  <!-- {{form.errors | json}} -->
+  <!-- {{form.controls?.username?.errors | json}} -->
