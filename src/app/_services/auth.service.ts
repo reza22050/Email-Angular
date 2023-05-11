@@ -13,6 +13,11 @@ export interface SignupResponse{
   username: string;
 }
 
+export interface LoginResponse{
+  username: string;
+}
+
+
 export interface LoginCredentials{
   username: string;
   password: string;
@@ -56,8 +61,8 @@ export class AuthService {
     );
   }
 
-  Signin(loginCredentials: LoginCredentials){
-    return this.http.post(`${this.baseUrl}/auth/signin`, loginCredentials).pipe(
+  Signin(loginCredentials: any){
+    return this.http.post<LoginResponse>(`${this.baseUrl}/auth/signin`, loginCredentials).pipe(
       tap(()=>{
         this.signedin$.next(true);
       })

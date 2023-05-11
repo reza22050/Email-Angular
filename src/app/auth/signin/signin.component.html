@@ -14,6 +14,12 @@
       <div class="ui pointing red basic label" *ngIf="f && f.errors && f.errors['noConnection']">
         Please check your network
       </div>
+      <div class="ui pointing red basic label" *ngIf="f && f.errors && f.errors['unknownError']">
+        unknownError
+      </div>
+      <div class="ui pointing red basic label" *ngIf="f && f.errors && f.errors['credential']">
+        User or password is incorrect
+      </div>
     </ng-container>
 
     <button [disabled]="f.invalid" class="ui button mt-5" style="margin-top: 5px;display: block;" type="submit">Login</button>

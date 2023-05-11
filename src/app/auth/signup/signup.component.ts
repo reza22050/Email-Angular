@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService, SignupCredentials } from 'src/app/_services/auth.service';
 import { MatchPasswordService } from 'src/app/_validators/match-password.service';
 import { UniqueUsernameService } from 'src/app/_validators/unique-username.service';
@@ -14,7 +15,8 @@ export class SignupComponent {
   constructor(
     private matchPassword: MatchPasswordService, 
     private uniqueUsername: UniqueUsernameService, 
-    private authService: AuthService
+    private authService: AuthService, 
+    private router: Router
     ){}
 
   form = new FormGroup({
@@ -48,6 +50,7 @@ export class SignupComponent {
     this.authService.signup({...this.form.value} as SignupCredentials).subscribe(
       (response)=>{
       //console.log(response.username);
+      this.router.navigate(['/inbox']);
     }, 
     (error) =>{
       //console.log(error);
