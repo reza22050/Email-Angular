@@ -4,7 +4,7 @@ import { AccessGuard } from './_guards/access.guard';
 
 const routes: Routes = [
   {path: 'inbox', 
-  canLoad: [AccessGuard],
+  canActivate: [AccessGuard],
   loadChildren: ()=>import('./inbox/inbox.module').then((m)=>m.InboxModule)}
 ];
 

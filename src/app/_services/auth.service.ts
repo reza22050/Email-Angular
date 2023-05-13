@@ -28,7 +28,7 @@ export interface LoginCredentials{
 })
 export class AuthService {
   private baseUrl = 'https://api.angular-email.com'
-  public signedin$ = new BehaviorSubject(false);
+  public signedin$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
