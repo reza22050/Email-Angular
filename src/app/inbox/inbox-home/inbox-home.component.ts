@@ -13,7 +13,7 @@ export class InboxHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.emailService.getEmails().subscribe((data)=>{
-      console.log(data);
+      //console.log(data);
     })
   }
 
