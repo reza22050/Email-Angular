@@ -10,6 +10,7 @@ import { EmailShowComponent } from './email-show/email-show.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlaceHolderComponent } from './place-holder/place-holder.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmailCreateComponent,
     EmailIndexComponent,
     EmailReplyComponent,
-    EmailShowComponent
+    EmailShowComponent,
+    PlaceHolderComponent
   ],
   imports: [
     CommonModule,
