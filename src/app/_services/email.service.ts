@@ -9,7 +9,10 @@ export class EmailService {
   constructor(private http: HttpClient) { }
 
   getEmails(){
-    return this.http.get(`${this.rootUrl}/emails`)
+    return of([ {subject: 'test', from: 'test@gmail.com'},
+    {subject: 'info', from: 'info@gmail.com'},
+    {subject: 'noreply', from: 'noreply@gmail.com'} ]);
+    //return this.http.get(`${this.rootUrl}/emails`)
   }
 
 }
