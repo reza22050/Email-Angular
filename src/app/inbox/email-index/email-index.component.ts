@@ -9,16 +9,16 @@ import { EmailService } from 'src/app/_services/email.service';
 export class EmailIndexComponent implements OnInit {
   
   emails: any = [
-    {subject: 'test', from: 'test@gmail.com'},
-    {subject: 'info', from: 'info@gmail.com'},
-    {subject: 'noreply', from: 'noreply@gmail.com'} 
+    // {subject: 'test', from: 'test@gmail.com'},
+    // {subject: 'info', from: 'info@gmail.com'},
+    // {subject: 'noreply', from: 'noreply@gmail.com'} 
   ];
   constructor(private emailService: EmailService){}
   
   ngOnInit(): void {
     this.emailService.getEmails().subscribe((data)=>{
       //console.log(data);
-      //this.emails = data;
+    this.emails = data;
     });
 
   }
