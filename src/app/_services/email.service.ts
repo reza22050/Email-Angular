@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 export interface EmailDetail{
-  id: string;
+  id: number;
   from: string;
   to: string;
   subject: string;
@@ -31,8 +31,8 @@ export class EmailService {
   }
 
 
-  getEmail(id: number){
-    const email = this.emails.find(x=>x.id == id);
+  getEmail(id: number): Observable<EmailDetail>{
+    const email = this.emails.find(x=>x.id == id) as EmailDetail;
     return of(email);
     //  return this.http.get<EmailDetail>(`${this.rootUrl}/emails/${id}`);
   }

@@ -8,7 +8,7 @@ import { EmailResolver } from '../_resolvers/email.resolver';
 const routes: Routes = [
   {path:'', component: InboxHomeComponent, children: [
     {path: '', component: PlaceHolderComponent }, 
-    {path: ':id', component: EmailShowComponent, resolve: {emil: EmailResolver} }
+    {path: ':id', component: EmailShowComponent, resolve: {email: EmailResolver} }
   ]}
 ];
 
