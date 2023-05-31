@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, catchError, of } from 'rxjs';
+import { EMPTY, Observable, catchError, of } from 'rxjs';
 import { EmailDetail, EmailService } from '../_services/email.service';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { EmailDetail, EmailService } from '../_services/email.service';
 })
 export class EmailResolver implements Resolve<EmailDetail> {
 
-constructor(private emailService: EmailService){}
+constructor(private emailService: EmailService, private router: Router){}
 
 
   resolve(
@@ -22,8 +22,9 @@ constructor(private emailService: EmailService){}
     const id = route.params['id'];
 
      return this.emailService.getEmail(id).pipe(
-      catchError((erro)=>{
-        
+      catchError((err)=>{
+        this.router.navigateByUrl('/index/not-found');
+        return EMPTY;
       })
      );
     //    console.log(route.params['id']);

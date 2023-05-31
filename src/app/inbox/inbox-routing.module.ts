@@ -4,11 +4,13 @@ import { InboxHomeComponent } from './inbox-home/inbox-home.component';
 import { PlaceHolderComponent } from './place-holder/place-holder.component';
 import { EmailShowComponent } from './email-show/email-show.component';
 import { EmailResolver } from '../_resolvers/email.resolver';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path:'', component: InboxHomeComponent, children: [
     {path: '', component: PlaceHolderComponent }, 
-    {path: ':id', component: EmailShowComponent, resolve: {email: EmailResolver} }
+    {path:'not-found', component: NotFoundComponent, pathMatch: 'full'}
+    {path: ':id', component: EmailShowComponent, resolve: {email: EmailResolver} , pathMatch: 'full'}, 
   ]}
 ];
 
